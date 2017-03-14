@@ -1,0 +1,45 @@
+package Program;
+
+import java.io.*;
+import java.util.Scanner;
+
+/**
+ * Created by AdMiN on 14.03.2017.
+ */
+public class Kriptography {
+    static Scanner in = new Scanner(System.in);
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\AdMiN\\Desktop\\code.txt"));
+        BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\AdMiN\\Desktop\\ancode.txt"));
+        String s = reader.readLine();
+        s += "";
+        System.out.print(s + "\n");
+        char[] arr = s.toCharArray();
+        switch (in.next()) {
+            case "code":
+
+                for (int i = 0; i < arr.length; i++) {
+                arr[i] += 1;
+            }
+            s = "";
+            for (int i = 0; i < arr.length; i++) {
+                s += arr[i];
+            }
+                writer.write(s);
+                reader.close();
+                writer.close();break;
+
+            case "ancode":
+                for (int i = 0; i < arr.length; i++) {
+                    arr[i] -= 1;
+                }
+                s = "";
+                for (int i = 0; i < arr.length; i++) {
+                    s += arr[i];
+                }
+                    writer.write(s);
+                    reader.close();
+                    writer.close();break;
+        }
+    }
+}
